@@ -15,8 +15,10 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Games</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" onclick="toggleDarkMode()">🌙</button>
         </div>
     </nav>
 
@@ -25,7 +27,7 @@
         <div class="container">
             <h1>Welcome to My Portfolio</h1>
             <p>I'm a passionate web developer creating beautiful and functional websites.</p>
-            <button class="cta-button">Get Started</button>
+            <button class="cta-button" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Get Started</button>
         </div>
     </section>
 
@@ -75,12 +77,42 @@
         </div>
     </section>
 
+    <!-- Games Section -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2>Interactive Games</h2>
+            <p>Try out these fun games built with HTML, CSS, and JavaScript</p>
+            <div class="games-grid">
+                <div class="game-card" onclick="startForestGame()">
+                    <div class="game-icon">🌲</div>
+                    <h3>Forest Adventure</h3>
+                    <p>Navigate through a mysterious forest and find your way out</p>
+                    <button class="play-button">Play Game</button>
+                </div>
+                <div class="game-card" onclick="startSpaceGame()">
+                    <div class="game-icon">🚀</div>
+                    <h3>Space Station Mystery</h3>
+                    <p>Restore power to a malfunctioning space station</p>
+                    <button class="play-button">Play Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGame()">&times;</span>
+            <div id="gameContainer"></div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <p>Feel free to reach out to me for any inquiries or collaborations.</p>
-            <form class="contact-form">
+            <form class="contact-form" onsubmit="handleSubmit(event)">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea placeholder="Your Message" rows="5" required></textarea>
@@ -100,5 +132,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="games.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
